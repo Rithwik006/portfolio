@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Developer Portfolio</title>
+    <meta name="description" content="Portfolio of a Computer Science Engineering student featuring modern dark futuristic UI.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Canvas for Particle Effects -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-panel">
+        <div class="nav-content">
+            <a href="#" class="logo glow-text">Rithwik<span class="accent-text">.</span>Goud</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text-area">
+                    <p class="greeting reveal-text">HELLO WORLD, I AM</p>
+                    <h1 class="title type-container"><span id="typewriter"></span><span class="cursor"></span></h1>
+                    <h2 class="subtitle reveal-text delay-1">Computer Science Engineering Student</h2>
+                    <p class="description reveal-text delay-2">
+                        Crafting high-performance web applications and bridging the gap between elegant design and complex backend systems. Welcome to my digital workspace.
+                    </p>
+                    <div class="hero-buttons reveal-text delay-3">
+                        <a href="#" class="neon-btn primary">
+                            <span>Download Resume</span>
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                        <a href="#projects" class="neon-btn secondary">
+                            <span>Explore Work</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="social-links reveal-text delay-4">
+                        <a href="https://github.com/Rithwik006"><i class="fa-brands fa-github"></i></a>
+                        <a href="http://linkedin.com/jobs/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="hero-profile-area">
+                    <div class="profile-container">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                        <div class="profile-image">
+                            <!-- Generated Ghibli-style image -->
+                            <img src="profile.png" alt="Developer Profile">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="floating-badge badge-1"><i class="fa-brands fa-react"></i></div>
+                        <div class="floating-badge badge-2"><i class="fa-brands fa-js"></i></div>
+                        <div class="floating-badge badge-3"><i class="fa-brands fa-python"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <h2 class="section-title reveal-text">System.<span class="accent-text">About()</span></h2>
+            <div class="about-content">
+                <div class="about-text glass-card scroll-fade-up">
+                    <p class="letter-reveal">
+                        I am an enthusiastic Computer Science student with a passion for building robust, scalable software and visually stunning web interfaces. My journey in tech started with a curiosity about how things work under the hood, and it has evolved into a relentless pursuit of engineering excellence.
+                    </p>
+                    <p class="letter-reveal">
+                        When I'm not coding, I'm exploring the latest advancements in AI, optimizing algorithms, or designing futuristic user experiences. I believe in clean code, continuous learning, and creating impactful technology.
+                    </p>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <h3 class="stat-number">3+</h3>
+                            <p>Years Coding</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">20+</h3>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">5</h3>
+                            <p>Hackathons</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual scroll-fade-up delay-1">
+                    <div class="code-editor-mockup">
+                        <div class="editor-header">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                            <span class="filename">developer.js</span>
+                        </div>
+                        <div class="editor-body">
+<pre><code><span class="keyword">const</span> developer <span class="operator">=</span> {
+  <span class="property">name</span>: <span class="string">'B Rithwik Goud'</span>,
+  <span class="property">role</span>: <span class="string">'Full Stack Dev'</span>,
+  <span class="property">passion</span>: [<span class="string">'UI/UX'</span>, <span class="string">'Backend'</span>, <span class="string">'AI'</span>],
+  <span class="function">solveProblem</span>: <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="string">'Coffee + Code'</span>;
+  }
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding">
+            <h2 class="section-title reveal-text">Load.<span class="accent-text">Skills()</span></h2>
+            <div class="skills-grid">
+                <!-- Skill Category 1 -->
+                <div class="skill-category glass-card scroll-fade-up">
+                    <h3><i class="fa-solid fa-layer-group"></i> Frontend</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>React / Next.js</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML / CSS / JS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Tailwind / Framer</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="skill-category glass-card scroll-fade-up delay-1">
+                    <h3><i class="fa-solid fa-server"></i> Backend</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Node.js / Express</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python / Django</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>PostgreSQL / MongoDB</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill Category 3 -->
+                <div class="skill-category glass-card scroll-fade-up delay-2">
+                    <h3><i class="fa-solid fa-wrench"></i> Tools & Core</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Git / Docker</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Data Structures</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>System Design</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding">
+            <h2 class="section-title reveal-text">Execute.<span class="accent-text">Projects()</span></h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card glass-card scroll-fade-up">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Rithwik006/imagica" target="_blank" class="icon-btn"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://imagica-chi.vercel.app/" target="_blank" class="icon-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Imagica</h3>
+                        <p>An innovative web application built to showcase creative engineering and elegant design.</p>
+                        <div class="tech-stack">
+                            <span>React</span>
+                            <span>Three.js</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card scroll-fade-up delay-1">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 2">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="icon-btn"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" class="icon-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Crypto Dashboard Defi</h3>
+                        <p>Real-time cryptocurrency tracking dashboard with predictive analytics and portfolio management.</p>
+                        <div class="tech-stack">
+                            <span>Next.js</span>
+                            <span>WebSockets</span>
+                            <span>Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-card scroll-fade-up delay-2">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 3">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="icon-btn"><i class="fa-brands fa-github"></i></a>
+                                <a href="#" class="icon-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>CyberSec Analysis Tool</h3>
+                        <p>A full-stack application that analyzes network logs to detect potential security vulnerabilities and anomalies.</p>
+                        <div class="tech-stack">
+                            <span>Node.js</span>
+                            <span>Elasticsearch</span>
+                            <span>Vue</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding">
+            <h2 class="section-title reveal-text">Init.<span class="accent-text">Contact()</span></h2>
+            <div class="contact-container glass-card scroll-fade-up">
+                <div class="contact-info">
+                    <h3>Establish Connection</h3>
+                    <p>Interested in collaborating or have a question? Secure a channel and send a transmission.</p>
+                    <div class="contact-methods">
+                        <div class="method">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>rithwikgoud006@gmail.com</span>
+                        </div>
+                        <div class="method">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Deenagar, chintal, hyderabad</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Identifier (Name)</label>
+                        <div class="input-glow"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Comm Link (Email)</label>
+                        <div class="input-glow"></div>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" required placeholder=" " rows="4"></textarea>
+                        <label for="message">Transmission Data</label>
+                        <div class="input-glow"></div>
+                    </div>
+                    <button type="submit" class="neon-btn primary w-full">
+                        <span>Send Transmission</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-panel">
+        <div class="footer-content">
+            <div class="footer-logo glow-text">Rithwik<span class="accent-text">.</span>Goud</div>
+            <p>&copy; 2026 Developed with <span class="heart">♥</span> & Code. All systems nominal.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/Rithwik006"><i class="fa-brands fa-github"></i></a>
+                <a href="http://linkedin.com/jobs/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
