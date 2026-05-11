@@ -16,7 +16,7 @@ document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click
 }));
 
 // Typing Animation
-const words = ["B Rithwik Goud", "A Developer", "An Innovator"];
+const words = ["Rithwik", "A Developer", "An Innovator"];
 let i = 0;
 let timer;
 
