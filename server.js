@@ -6,9 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Replace with your MongoDB connection string if using MongoDB Atlas
-// For local MongoDB, ensure your MongoDB server is running
-const MONGO_URI = 'mongodb://127.0.0.1:27017/portfolio';
+// Use Environment Variable for MongoDB URI or fallback to local
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/portfolio';
 
 mongoose.connect(MONGO_URI)
     .then(() => console.log('Connected to MongoDB database'))
