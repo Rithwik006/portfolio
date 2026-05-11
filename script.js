@@ -231,7 +231,7 @@ async function loadProjectsFromDatabase() {
         // Automatically switch between Local and Production API
         const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
             ? 'http://localhost:5000'
-            : 'https://portfolio-backend-ithw.onrender.com'; // You will need to update this after Render deployment
+            : 'https://portfolio-backend-5nz2.onrender.com';
             
         const response = await fetch(`${API_BASE_URL}/api/projects`);
         if (!response.ok) throw new Error('Database server not responding');
