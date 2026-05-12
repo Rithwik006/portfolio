@@ -46,22 +46,6 @@ app.post('/api/seed', async (req, res) => {
             githubLink: "https://github.com/Rithwik006/imagica",
             liveLink: "https://imagica-chi.vercel.app/",
             techStack: ["React", "Three.js", "Python"]
-        },
-        {
-            title: "Crypto Dashboard Defi",
-            description: "Real-time cryptocurrency tracking dashboard with predictive analytics and portfolio management.",
-            imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            githubLink: "#",
-            liveLink: "#",
-            techStack: ["Next.js", "WebSockets", "Tailwind"]
-        },
-        {
-            title: "CyberSec Analysis Tool",
-            description: "A full-stack application that analyzes network logs to detect potential security vulnerabilities and anomalies.",
-            imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            githubLink: "#",
-            liveLink: "#",
-            techStack: ["Node.js", "Elasticsearch", "Vue"]
         }
     ];
 
@@ -70,7 +54,8 @@ app.post('/api/seed', async (req, res) => {
         await Project.insertMany(initialProjects);
         res.json({ message: 'Database seeded successfully with projects!' });
     } catch (error) {
-        res.status(500).json({ message: 'Error seeding database', error });
+        console.error('Seeding error:', error);
+        res.status(500).json({ message: 'Error seeding database', error: error.message });
     }
 });
 
