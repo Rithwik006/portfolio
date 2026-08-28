@@ -45,7 +45,23 @@ app.post('/api/seed', async (req, res) => {
             imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
             githubLink: "https://github.com/Rithwik006/imagica",
             liveLink: "https://imagica-chi.vercel.app/",
-            techStack: ["React", "Three.js", "Python"]
+            techStack: ["React", "Express.js", "Supabase"]
+        },
+        {
+            title: "Tracora",
+            description: "A scalable full-stack web application featuring a modern React frontend and a robust FastAPI backend.",
+            imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            githubLink: "https://github.com/Rithwik006/Tracora",
+            liveLink: "https://tracora.vercel.app/",
+            techStack: ["React", "FastAPI", "Vercel", "Render"]
+        },
+        {
+            title: "Bloggora",
+            description: "A dynamic blogging platform built for seamless content creation, reading, and user engagement.",
+            imageUrl: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            githubLink: "https://github.com/Rithwik006/bloggora",
+            liveLink: "https://bloggora-liard.vercel.app/",
+            techStack: ["React", "Tailwind CSS", "Node.js"]
         }
     ];
 

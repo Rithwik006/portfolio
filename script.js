@@ -277,3 +277,26 @@ async function loadProjectsFromDatabase() {
 
 // Attempt to load database projects
 loadProjectsFromDatabase();
+
+// Contact Form Submission Handler
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+        const body = encodeURIComponent(`${message}\n\nSender Email: ${email}`);
+        
+        // Open the default email client
+        window.location.href = `mailto:rithwikgoud006@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Clear the form after a slight delay
+        setTimeout(() => {
+            contactForm.reset();
+        }, 1000);
+    });
+}
