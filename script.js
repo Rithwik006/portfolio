@@ -16,7 +16,7 @@ document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click
 }));
 
 // Typing Animation
-const words = ["Rithwik", "A Developer", "An Innovator"];
+const words = ["Computer Science Engineering Student", "A Full-Stack Developer", "An Innovator"];
 let i = 0;
 let timer;
 
@@ -170,7 +170,7 @@ class Particle {
 // Create particle array
 function initParticles() {
     particlesArray = [];
-    let numberOfParticles = (canvas.height * canvas.width) / 40000;
+    let numberOfParticles = (canvas.height * canvas.width) / 120000;
     
     for (let i = 0; i < numberOfParticles; i++) {
         let size = (Math.random() * 2) + 0.5;

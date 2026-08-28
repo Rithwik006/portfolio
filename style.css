@@ -89,7 +89,7 @@ a {
     color: var(--primary);
 }
 .section-padding {
-    padding: 100px 10%;
+    padding: 70px 10%;
 }
 .section-title {
     font-size: 2.5rem;
@@ -491,6 +491,40 @@ a {
     border-radius: 3px;
     box-shadow: var(--neon-glow);
     transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+}
+
+/* Education Section */
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.edu-card {
+    padding: 2rem;
+    position: relative;
+    border-left: 4px solid var(--primary);
+}
+.edu-date {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+.edu-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+}
+.edu-card h4 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+.edu-card p {
+    font-size: 0.95rem;
 }
 
 /* Coding Profiles Section */
