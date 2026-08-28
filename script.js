@@ -291,8 +291,8 @@ if (contactForm) {
         const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
         const body = encodeURIComponent(`${message}\n\nSender Email: ${email}`);
         
-        // Open the default email client
-        window.location.href = `mailto:rithwikgoud006@gmail.com?subject=${subject}&body=${body}`;
+        // Open Gmail in a new tab
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=rithwikgoud006@gmail.com&su=${subject}&body=${body}`, '_blank');
         
         // Clear the form after a slight delay
         setTimeout(() => {
