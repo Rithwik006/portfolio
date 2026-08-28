@@ -50,7 +50,7 @@ a {
 }
 
 /* Particle Canvas */
-#particleCanvas {
+/* #particleCanvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -58,9 +58,7 @@ a {
     height: 100vh;
     z-index: -1;
     pointer-events: none;
-}
-
-
+} */
 
 /* Utilities */
 .glass-panel {

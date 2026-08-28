@@ -108,122 +108,118 @@ document.querySelectorAll('.scroll-fade-up, .reveal-text, .letter-reveal').forEa
 });
 
 // Sparkle Particle Background (Canvas)
-const canvas = document.getElementById('particleCanvas');
-const ctx = canvas.getContext('2d');
+// const canvas = document.getElementById('particleCanvas');
+// const ctx = canvas.getContext('2d');
 
-let particlesArray;
+// let particlesArray;
 
-// Set canvas size
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// // Set canvas size
+// canvas.width = window.innerWidth;
+// canvas.height = window.innerHeight;
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-});
+// window.addEventListener('resize', () => {
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+//     initParticles();
+// });
 
+// // Particle Class
+// class Particle {
+//     constructor(x, y, directionX, directionY, size, color) {
+//         this.x = x;
+//         this.y = y;
+//         this.directionX = directionX;
+//         this.directionY = directionY;
+//         this.size = size;
+//         this.color = color;
+//     }
+//     
+//     // Method to draw individual particle
+//     draw() {
+//         ctx.beginPath();
+//         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+//         ctx.fillStyle = this.color;
+//         ctx.fill();
+//     }
+//     
+//     // Update particle position
+//     update() {
+//         // Bounce off edges
+//         if (this.x > canvas.width || this.x < 0) {
+//             this.directionX = -this.directionX;
+//         }
+//         if (this.y > canvas.height || this.y < 0) {
+//             this.directionY = -this.directionY;
+//         }
+//         
+//         // Move particle
+//         this.x += this.directionX;
+//         this.y += this.directionY;
+//         
+//         // Add scroll drift effect
+//         this.y -= window.scrollY * 0.001 * this.directionY;
 
+//         this.draw();
+//     }
+// }
 
-// Particle Class
-class Particle {
-    constructor(x, y, directionX, directionY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
-        this.size = size;
-        this.color = color;
-    }
-    
-    // Method to draw individual particle
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-    }
-    
-    // Update particle position
-    update() {
-        // Bounce off edges
-        if (this.x > canvas.width || this.x < 0) {
-            this.directionX = -this.directionX;
-        }
-        if (this.y > canvas.height || this.y < 0) {
-            this.directionY = -this.directionY;
-        }
-        
+// // Create particle array
+// function initParticles() {
+//     particlesArray = [];
+//     let numberOfParticles = (canvas.height * canvas.width) / 120000;
+//     
+//     for (let i = 0; i < numberOfParticles; i++) {
+//         let size = (Math.random() * 2) + 0.5;
+//         let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+//         let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+//         let directionX = (Math.random() * 1) - 0.5;
+//         let directionY = (Math.random() * 1) - 0.5;
+//         
+//         // Randomly pick cyan or blue
+//         let colors = ['rgba(0, 242, 255, 0.6)', 'rgba(0, 102, 255, 0.6)', 'rgba(255, 255, 255, 0.3)'];
+//         let color = colors[Math.floor(Math.random() * colors.length)];
+//         
+//         particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+//     }
+// }
 
-        
-        // Move particle
-        this.x += this.directionX;
-        this.y += this.directionY;
-        
-        // Add scroll drift effect
-        this.y -= window.scrollY * 0.001 * this.directionY;
+// // Animation loop
+// function animateParticles() {
+//     requestAnimationFrame(animateParticles);
+//     ctx.clearRect(0, 0, innerWidth, innerHeight);
+//     
+//     for (let i = 0; i < particlesArray.length; i++) {
+//         particlesArray[i].update();
+//     }
+// }
 
-        this.draw();
-    }
-}
+// // Start particle system
+// initParticles();
+// animateParticles();
 
-// Create particle array
-function initParticles() {
-    particlesArray = [];
-    let numberOfParticles = (canvas.height * canvas.width) / 120000;
-    
-    for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 2) + 0.5;
-        let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-        let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 1) - 0.5;
-        let directionY = (Math.random() * 1) - 0.5;
-        
-        // Randomly pick cyan or blue
-        let colors = ['rgba(0, 242, 255, 0.6)', 'rgba(0, 102, 255, 0.6)', 'rgba(255, 255, 255, 0.3)'];
-        let color = colors[Math.floor(Math.random() * colors.length)];
-        
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-    }
-}
+// // Sparkle trail on scroll
+// let isScrolling;
+// window.addEventListener('scroll', () => {
+//     window.clearTimeout(isScrolling);
+//     
+//     // Add extra temporary particles while scrolling
+//     if(particlesArray.length < 80) {
+//         for(let i=0; i<3; i++) {
+//             let size = Math.random() * 3 + 1;
+//             let x = Math.random() * canvas.width;
+//             let y = Math.random() * canvas.height;
+//             let dirX = (Math.random() * 2) - 1;
+//             // Particles float upwards while scrolling down
+//             let dirY = -Math.random() * 3 - 1; 
+//             particlesArray.push(new Particle(x, y, dirX, dirY, size, 'rgba(0, 242, 255, 0.8)'));
+//         }
+//     }
 
-// Animation loop
-function animateParticles() {
-    requestAnimationFrame(animateParticles);
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
-    
-    for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-    }
-}
-
-// Start particle system
-initParticles();
-animateParticles();
-
-// Sparkle trail on scroll
-let isScrolling;
-window.addEventListener('scroll', () => {
-    window.clearTimeout(isScrolling);
-    
-    // Add extra temporary particles while scrolling
-    if(particlesArray.length < 80) {
-        for(let i=0; i<3; i++) {
-            let size = Math.random() * 3 + 1;
-            let x = Math.random() * canvas.width;
-            let y = Math.random() * canvas.height;
-            let dirX = (Math.random() * 2) - 1;
-            // Particles float upwards while scrolling down
-            let dirY = -Math.random() * 3 - 1; 
-            particlesArray.push(new Particle(x, y, dirX, dirY, size, 'rgba(0, 242, 255, 0.8)'));
-        }
-    }
-
-    isScrolling = setTimeout(() => {
-        // Remove extra particles after scrolling stops
-        initParticles(); 
-    }, 200);
-}, false);
+//     isScrolling = setTimeout(() => {
+//         // Remove extra particles after scrolling stops
+//         initParticles(); 
+//     }, 200);
+// }, false);
 
 // Database Fetch Integration
 async function loadProjectsFromDatabase() {
