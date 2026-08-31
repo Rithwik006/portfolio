@@ -136,6 +136,13 @@ a {
     font-family: var(--font-heading);
     font-size: 0.8rem;
     letter-spacing: 2px;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.scroll-indicator:hover, .press-indicator:hover {
+    transform: scale(1.1);
 }
 
 .scroll-indicator { right: 50px; }
@@ -455,4 +462,6 @@ a {
     .form-group { flex-direction: column; align-items: flex-start; gap: 10px; }
     .form-group label { text-align: left; }
     .slide-title { margin-bottom: 50px; font-size: 1.5rem; }
+    .modal-socials { gap: 15px; font-size: 1.5rem; }
+    .modal-socials svg { width: 20px; height: 20px; }
 }
