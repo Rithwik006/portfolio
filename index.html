@@ -3,452 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rithwik Goud | Portfolio</title>
-    <meta name="description" content="Portfolio of a Computer Science Engineering student featuring modern dark futuristic UI.">
+    <title>Rithwik Goud | Space Portfolio</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Canvas for Particle Effects -->
-    <!-- <canvas id="particleCanvas"></canvas> -->
 
-    <!-- Navigation -->
-    <nav class="navbar glass-panel">
-        <div class="nav-content">
-            <a href="#" class="logo glow-text">Rithwik</a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#profiles">Profiles</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Fixed UI Elements -->
+    <div class="fixed-ui">
+        <a href="#" id="contact-btn" class="contact-link glow-text">CONTACT ME</a>
+        
+        <div class="social-sidebar">
+            <a href="https://github.com/Rithwik006" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rithwik-goud-4b9b443ab/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/rithwik-goud-4b9b443ab/" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.hackerrank.com/profile/Rithwik006" target="_blank" class="social-icon"><i class="fa-brands fa-hackerrank"></i></a>
+            <a href="https://leetcode.com/u/Rithwik006dd88sM/" target="_blank" class="social-icon"><i class="fa-solid fa-code"></i></a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span class="scroll-text">SCROLL</span>
+            <div class="scroll-icon">
+                <i class="fa-solid fa-arrows-up-down"></i>
             </div>
         </div>
-    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <div class="hero-text-area">
-                    <p class="greeting reveal-text">HELLO WORLD, I AM</p>
-                    <h1 class="title reveal-text" style="min-height: auto;">Rithwik Goud</h1>
-                    <h2 class="subtitle type-container reveal-text delay-1" style="min-height: 2rem;"><span id="typewriter"></span><span class="cursor"></span></h2>
-                    <p class="description reveal-text delay-2">
-                        Crafting high-performance web applications and bridging the gap between elegant design and complex backend systems. Welcome to my digital workspace.
-                    </p>
-                    <div class="hero-buttons reveal-text delay-3">
-                        <a href="resume.pdf" download class="neon-btn primary">
-                            <span>Download Resume</span>
-                            <i class="fa-solid fa-download"></i>
-                        </a>
-                        <a href="#projects" class="neon-btn secondary">
-                            <span>Explore Work</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="social-links reveal-text delay-4">
-                        <a href="https://github.com/Rithwik006" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/rithwik-goud-4b9b443ab/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+        <div class="press-indicator">
+            <span class="press-text">PRESS</span>
+            <div class="press-icon">
+                <i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container with Scroll Snapping -->
+    <main class="scroll-container">
+
+        <!-- 1. Home Section -->
+        <section id="home" class="section-panel" style="background-image: url('assets/bg-home.png');">
+            <div class="section-content home-content">
+                <p class="subtitle glow-text">A MESSAGE FROM EARTH</p>
+                <h1 class="title glow-text-purple">HELLO FELLOW GALAXY MEMBER</h1>
+                <p class="subtitle glow-text">A MESSAGE FROM EARTH</p>
                 
-                <div class="hero-profile-area">
-                    <div class="profile-container">
-                        <div class="ring ring-1"></div>
-                        <div class="ring ring-2"></div>
-                        <div class="ring ring-3"></div>
-                        <div class="profile-image">
-                            <!-- Generated Ghibli-style image -->
-                            <img src="profile.png" alt="Developer Profile">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="floating-badge badge-1"><i class="fa-brands fa-react"></i></div>
-                        <div class="floating-badge badge-2"><i class="fa-brands fa-js"></i></div>
-                        <div class="floating-badge badge-3"><i class="fa-brands fa-python"></i></div>
+                <h2 class="name-title glow-text-purple">I AM RITHWIK GOUD</h2>
+
+                <div class="interactive-box">
+                    <div class="click-to-open" id="home-box-toggle">
+                        <span class="corners top-left"></span>
+                        <span class="corners top-right"></span>
+                        <span class="corners bottom-left"></span>
+                        <span class="corners bottom-right"></span>
+                        <p class="glow-text">CLICK<br>TO OPEN</p>
+                    </div>
+                    <div class="box-content hidden" id="home-box-content">
+                        <span class="corners top-left"></span>
+                        <span class="corners top-right"></span>
+                        <span class="corners bottom-left"></span>
+                        <span class="corners bottom-right"></span>
+                        <p>I am an enthusiastic Computer Science student with a passion for building robust, scalable software and visually stunning web interfaces. Welcome to my digital workspace.</p>
+                        <a href="resume.pdf" download class="download-btn glow-text-purple" style="margin-top: 1rem; display: inline-block;">DOWNLOAD RESUME</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="section-padding">
-            <h2 class="section-title reveal-text">System.<span class="accent-text">About()</span></h2>
-            <div class="about-content">
-                <div class="about-text glass-card scroll-fade-up">
-                    <p class="letter-reveal">
-                        I am an enthusiastic Computer Science student with a passion for building robust, scalable software and visually stunning web interfaces. My journey in tech started with a curiosity about how things work under the hood, and it has evolved into a relentless pursuit of engineering excellence.
-                    </p>
-                    <p class="letter-reveal">
-                        When I'm not coding, I'm exploring the latest advancements in AI, optimizing algorithms, or designing futuristic user experiences. I believe in clean code, continuous learning, and creating impactful technology.
-                    </p>
-                    <div class="stats-container">
-                        <div class="stat-item">
-                            <h3 class="stat-number">3+</h3>
-                            <p>Years Coding</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3 class="stat-number">20+</h3>
-                            <p>Projects</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3 class="stat-number">5</h3>
-                            <p>Hackathons</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual scroll-fade-up delay-1">
-                    <div class="code-editor-mockup">
-                        <div class="editor-header">
-                            <div class="dot red"></div>
-                            <div class="dot yellow"></div>
-                            <div class="dot green"></div>
-                            <span class="filename">developer.js</span>
-                        </div>
-                        <div class="editor-body">
-<pre><code><span class="keyword">const</span> developer <span class="operator">=</span> {
-  <span class="property">name</span>: <span class="string">'Rithwik'</span>,
-  <span class="property">role</span>: <span class="string">'Full Stack Dev'</span>,
-  <span class="property">passion</span>: [<span class="string">'UI/UX'</span>, <span class="string">'Backend'</span>, <span class="string">'AI'</span>],
-  <span class="function">solveProblem</span>: <span class="keyword">function</span>() {
-    <span class="keyword">return</span> <span class="string">'Coffee + Code'</span>;
-  }
-};</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section-padding">
-            <h2 class="section-title reveal-text">Load.<span class="accent-text">Skills()</span></h2>
-            <div class="skills-grid">
-                <!-- Skill Category 1 -->
-                <div class="skill-category glass-card scroll-fade-up">
-                    <h3><i class="fa-solid fa-layer-group"></i> Code & Frontend</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python / Java / C</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>HTML / CSS / JS</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React.js / Tailwind CSS</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill Category 2 -->
-                <div class="skill-category glass-card scroll-fade-up delay-1">
-                    <h3><i class="fa-solid fa-server"></i> Backend & Database</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Node.js / Express.js</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>FastAPI</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>MongoDB / MySQL / Supabase</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="75%"></div>
-                        </div>
-                    </div>
-                </div>
+        <!-- 2. Skills Section -->
+        <section id="skills" class="section-panel" style="background-image: url('assets/bg-skills.png');">
+            <div class="section-content skills-content">
+                <h2 class="section-title glow-text-purple">MY SKILLS</h2>
+                <p class="section-subtitle glow-text">HERE IS A LIST OF SOME OF MY SKILLS</p>
                 
-                <!-- Skill Category 3 -->
-                <div class="skill-category glass-card scroll-fade-up delay-2">
-                    <h3><i class="fa-solid fa-wrench"></i> Tools & Tech</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Git / GitHub</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Vercel / Render</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>VS Code / DSA</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" data-width="85%"></div>
-                        </div>
-                    </div>
+                <div class="skills-grid">
+                    <div class="skill-box glow-box">ReactJS</div>
+                    <div class="skill-box glow-box">Node.js</div>
+                    <div class="skill-box glow-box">Express</div>
+                    <div class="skill-box glow-box">FastAPI</div>
+                    <div class="skill-box glow-box">MongoDB</div>
+                    <div class="skill-box glow-box">Python</div>
+                    <div class="skill-box glow-box">Java</div>
+                    <div class="skill-box glow-box">C / C++</div>
+                    <div class="skill-box glow-box">Tailwind CSS</div>
+                    <div class="skill-box glow-box">HTML/JS</div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section-padding">
-            <h2 class="section-title reveal-text">Execute.<span class="accent-text">Projects()</span></h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card glass-card scroll-fade-up">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 1">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/Rithwik006/imagica" target="_blank" class="icon-btn"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://imagica-chi.vercel.app/" target="_blank" class="icon-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
+        <!-- 3. Projects Section -->
+        <section id="projects" class="section-panel" style="background-image: url('assets/bg-projects.png');">
+            <div class="section-content projects-content">
+                <h2 class="section-title glow-text-purple">MY PROJECTS</h2>
+                
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn"><i class="fa-solid fa-caret-left"></i></button>
+                    
+                    <div class="carousel-track-wrapper">
+                        <ul class="carousel-track" id="projects-track">
+                            <!-- Project 1 -->
+                            <li class="carousel-slide current-slide">
+                                <h3 class="slide-title glow-text">PROJECT 1 : IMAGICA</h3>
+                                <div class="interactive-box project-box">
+                                    <div class="click-to-open project-box-toggle">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p class="glow-text">CLICK<br>TO OPEN</p>
+                                    </div>
+                                    <div class="box-content hidden project-box-content">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p>An innovative web application built to showcase creative engineering and elegant design using React, Express, and Supabase.</p>
+                                        <div class="project-links">
+                                            <a href="https://github.com/Rithwik006/imagica" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                            <a href="https://imagica-chi.vercel.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Project 2 -->
+                            <li class="carousel-slide hidden-slide">
+                                <h3 class="slide-title glow-text">PROJECT 2 : TRACORA</h3>
+                                <div class="interactive-box project-box">
+                                    <div class="click-to-open project-box-toggle">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p class="glow-text">CLICK<br>TO OPEN</p>
+                                    </div>
+                                    <div class="box-content hidden project-box-content">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p>A scalable full-stack web application featuring a modern React frontend and a robust FastAPI backend.</p>
+                                        <div class="project-links">
+                                            <a href="https://github.com/Rithwik006/Tracora" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                            <a href="https://tracora.vercel.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Project 3 -->
+                            <li class="carousel-slide hidden-slide">
+                                <h3 class="slide-title glow-text">PROJECT 3 : BLOGGORA</h3>
+                                <div class="interactive-box project-box">
+                                    <div class="click-to-open project-box-toggle">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p class="glow-text">CLICK<br>TO OPEN</p>
+                                    </div>
+                                    <div class="box-content hidden project-box-content">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p>A dynamic blogging platform built for seamless content creation, reading, and user engagement using React and Node.js.</p>
+                                        <div class="project-links">
+                                            <a href="https://github.com/Rithwik006/bloggora" target="_blank"><i class="fa-brands fa-github"></i></a>
+                                            <a href="https://bloggora-liard.vercel.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="project-info">
-                        <h3>Imagica</h3>
-                        <p>An innovative web application built to showcase creative engineering and elegant design.</p>
-                        <div class="tech-stack">
-                            <span>React</span>
-                            <span>Express.js</span>
-                            <span>Supabase</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card glass-card scroll-fade-up delay-1">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 2">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/Rithwik006/Tracora" target="_blank" class="icon-btn"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://tracora.vercel.app/" target="_blank" class="icon-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Tracora</h3>
-                        <p>A scalable full-stack web application featuring a modern React frontend and a robust FastAPI backend.</p>
-                        <div class="tech-stack">
-                            <span>React</span>
-                            <span>FastAPI</span>
-                            <span>Vercel</span>
-                            <span>Render</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card glass-card scroll-fade-up delay-2">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Project 3">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/Rithwik006/bloggora" target="_blank" class="icon-btn"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://bloggora-liard.vercel.app/" target="_blank" class="icon-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Bloggora</h3>
-                        <p>A dynamic blogging platform built for seamless content creation, reading, and user engagement.</p>
-                        <div class="tech-stack">
-                            <span>React</span>
-                            <span>Tailwind CSS</span>
-                            <span>Node.js</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section-padding">
-            <h2 class="section-title reveal-text">Read.<span class="accent-text">Education()</span></h2>
-            <div class="education-container">
-                <!-- College -->
-                <div class="edu-card glass-card scroll-fade-up">
-                    <div class="edu-date">2024 &mdash; 2028</div>
-                    <h3>B.Tech in Computer Science and Engineering</h3>
-                    <h4>Narsimha Reddy Engineering College (Autonomous), Maisammaguda, Hyderabad</h4>
-                    <p>CGPA: 7.78/10 | Affiliated to JNTUH</p>
-                </div>
-                <!-- Junior College -->
-                <div class="edu-card glass-card scroll-fade-up delay-1">
-                    <div class="edu-date">2022 &mdash; 2024</div>
-                    <h3>Intermediate &ndash; MPC</h3>
-                    <h4>Narayana Junior College, Kukatpally, Hyderabad</h4>
-                    <p>Score: 942/1000</p>
-                </div>
-                <!-- School -->
-                <div class="edu-card glass-card scroll-fade-up delay-2">
-                    <div class="edu-date">2022</div>
-                    <h3>Secondary School Certificate (SSC)</h3>
-                    <h4>Triveni Talent School, Chintal, Hyderabad</h4>
-                    <p>GPA: 9.7/10</p>
+                    
+                    <button class="carousel-btn next-btn"><i class="fa-solid fa-caret-right"></i></button>
                 </div>
             </div>
         </section>
 
-        <!-- Coding Profiles Section -->
-        <section id="profiles" class="section-padding">
-            <h2 class="section-title reveal-text">Fetch.<span class="accent-text">Profiles()</span></h2>
-            <div class="profiles-grid">
-                <!-- HackerRank -->
-                <div class="profile-card glass-card scroll-fade-up">
-                    <div class="profile-header">
-                        <i class="fa-brands fa-hackerrank" style="color: #2EC866; font-size: 2rem;"></i>
-                        <h3>HackerRank</h3>
+        <!-- 4. Education Section -->
+        <section id="education" class="section-panel" style="background-image: url('assets/bg-education.png');">
+            <div class="section-content education-content">
+                <h2 class="section-title glow-text-purple">MY EDUCATION</h2>
+                
+                <div class="carousel-container">
+                    <button class="carousel-btn edu-prev-btn"><i class="fa-solid fa-caret-left"></i></button>
+                    
+                    <div class="carousel-track-wrapper">
+                        <ul class="carousel-track" id="education-track">
+                            <!-- Edu 1 -->
+                            <li class="carousel-slide current-slide">
+                                <h3 class="slide-title glow-text">B.TECH IN CSE</h3>
+                                <p class="slide-subtitle glow-text">2024 - 2028</p>
+                                <div class="interactive-box project-box">
+                                    <div class="click-to-open project-box-toggle">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p class="glow-text">CLICK<br>TO OPEN</p>
+                                    </div>
+                                    <div class="box-content hidden project-box-content">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p>Narsimha Reddy Engineering College (Autonomous), Maisammaguda, Hyderabad.<br>CGPA: 7.78/10</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Edu 2 -->
+                            <li class="carousel-slide hidden-slide">
+                                <h3 class="slide-title glow-text">INTERMEDIATE (MPC)</h3>
+                                <p class="slide-subtitle glow-text">2022 - 2024</p>
+                                <div class="interactive-box project-box">
+                                    <div class="click-to-open project-box-toggle">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p class="glow-text">CLICK<br>TO OPEN</p>
+                                    </div>
+                                    <div class="box-content hidden project-box-content">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p>Narayana Junior College, Kukatpally, Hyderabad.<br>Score: 942/1000</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Edu 3 -->
+                            <li class="carousel-slide hidden-slide">
+                                <h3 class="slide-title glow-text">SECONDARY SCHOOL</h3>
+                                <p class="slide-subtitle glow-text">2022</p>
+                                <div class="interactive-box project-box">
+                                    <div class="click-to-open project-box-toggle">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p class="glow-text">CLICK<br>TO OPEN</p>
+                                    </div>
+                                    <div class="box-content hidden project-box-content">
+                                        <span class="corners top-left"></span>
+                                        <span class="corners top-right"></span>
+                                        <span class="corners bottom-left"></span>
+                                        <span class="corners bottom-right"></span>
+                                        <p>Triveni Talent School, Chintal, Hyderabad.<br>GPA: 9.7/10</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="profile-stats">
-                        <p><strong>Python:</strong> 5 Star Gold</p>
-                        <p><strong>Problem Solving:</strong> 4 Stars</p>
-                        <p><strong>Java & C:</strong> 3 Stars</p>
-                    </div>
-                    <a href="https://www.hackerrank.com/profile/Rithwik006" target="_blank" class="neon-btn secondary w-full" style="margin-top: 1rem;">View Profile</a>
+                    
+                    <button class="carousel-btn edu-next-btn"><i class="fa-solid fa-caret-right"></i></button>
                 </div>
-
-                <!-- LeetCode -->
-                <div class="profile-card glass-card scroll-fade-up delay-1">
-                    <div class="profile-header">
-                        <i class="fa-solid fa-code" style="color: #E2A123; font-size: 2rem;"></i>
-                        <h3>LeetCode</h3>
-                    </div>
-                    <div class="profile-stats">
-                        <p><strong>Problems Solved:</strong> 93 (Easy: 69, Med: 24)</p>
-                        <p><strong>Badges:</strong> 50 Days Badge 2026</p>
-                    </div>
-                    <a href="https://leetcode.com/u/Rithwik006dd88sM/" target="_blank" class="neon-btn secondary w-full" style="margin-top: 1rem;">View Profile</a>
-                </div>
-
-                <!-- GeeksforGeeks -->
-                <div class="profile-card glass-card scroll-fade-up delay-2">
-                    <div class="profile-header">
-                        <i class="fa-solid fa-laptop-code" style="color: #2F8D46; font-size: 2rem;"></i>
-                        <h3>GeeksforGeeks</h3>
-                    </div>
-                    <div class="profile-stats">
-                        <p><strong>Coding Score:</strong> 323</p>
-                        <p><strong>Problems Solved:</strong> 179</p>
-                        <p><strong>Institute Rank:</strong> 16</p>
-                    </div>
-                    <a href="https://www.geeksforgeeks.org/profile/rithwik006" target="_blank" class="neon-btn secondary w-full" style="margin-top: 1rem;">View Profile</a>
-                </div>
-
-                <!-- CodeChef -->
-                <div class="profile-card glass-card scroll-fade-up delay-3">
-                    <div class="profile-header">
-                        <i class="fa-solid fa-utensils" style="color: #5B4638; font-size: 2rem;"></i>
-                        <h3>CodeChef</h3>
-                    </div>
-                    <div class="profile-stats">
-                        <p><strong>Rating:</strong> 1152 (Div 4)</p>
-                        <p><strong>Highest Rating:</strong> 1395 (1 Star)</p>
-                        <p><strong>Global Rank:</strong> 99256</p>
-                    </div>
-                    <a href="https://www.codechef.com/users/rithwik_006" target="_blank" class="neon-btn secondary w-full" style="margin-top: 1rem;">View Profile</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section-padding">
-            <h2 class="section-title reveal-text">Init.<span class="accent-text">Contact()</span></h2>
-            <div class="contact-container glass-card scroll-fade-up">
-                <div class="contact-info">
-                    <h3>Establish Connection</h3>
-                    <p>Interested in collaborating or have a question? Secure a channel and send a transmission.</p>
-                    <div class="contact-methods">
-                        <div class="method">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span>rithwikgoud006@gmail.com</span>
-                        </div>
-                        <div class="method">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Deenagar, chintal, hyderabad</span>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="input-group">
-                        <input type="text" id="name" required placeholder=" ">
-                        <label for="name">Identifier (Name)</label>
-                        <div class="input-glow"></div>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" id="email" required placeholder=" ">
-                        <label for="email">Comm Link (Email)</label>
-                        <div class="input-glow"></div>
-                    </div>
-                    <div class="input-group">
-                        <textarea id="message" required placeholder=" " rows="4"></textarea>
-                        <label for="message">Transmission Data</label>
-                        <div class="input-glow"></div>
-                    </div>
-                    <button type="submit" class="neon-btn primary w-full">
-                        <span>Send Transmission</span>
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </form>
             </div>
         </section>
     </main>
 
-    <footer class="glass-panel">
-        <div class="footer-content">
-            <div class="footer-logo glow-text">Rithwik</div>
-            <p>&copy; 2026 Developed with <span class="heart">♥</span> & Code. All systems nominal.</p>
-            <div class="footer-socials">
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn glow-text">&lt; GO BACK</button>
+            <h2 class="section-title glow-text-purple">CONTACT ME</h2>
+            
+            <form class="space-form" action="mailto:rithwikgoud006@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label>EMAIL :</label>
+                    <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
+                </div>
+                <div class="form-group">
+                    <label>SUBJECT :</label>
+                    <input type="text" placeholder="SOMETHING SOMETHING" required>
+                </div>
+                <div class="form-group">
+                    <label>CONTENT :</label>
+                    <textarea placeholder="SOMETHING SOMETHING..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn glow-text-purple">SUBMIT</button>
+            </form>
+            
+            <div class="modal-socials">
                 <a href="https://github.com/Rithwik006" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/rithwik-goud-4b9b443ab/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:rithwikgoud006@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.hackerrank.com/profile/Rithwik006" target="_blank"><i class="fa-brands fa-hackerrank"></i></a>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
