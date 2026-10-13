@@ -113,10 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCarousel('education-track', 'edu-prev-btn', 'edu-next-btn');
 
 
-    // --- Contact Modal ---
+    // --- Contact Modal & Form ---
     const contactBtn = document.getElementById('contact-btn');
     const contactModal = document.getElementById('contact-modal');
     const closeModalBtn = document.getElementById('close-modal');
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('contact-submit-btn');
 
     if (contactBtn && contactModal && closeModalBtn) {
         contactBtn.addEventListener('click', (e) => {
@@ -126,12 +129,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
         closeModalBtn.addEventListener('click', () => {
             contactModal.classList.add('hidden');
+            if (formStatus) formStatus.style.display = 'none';
         });
 
         // Close on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !contactModal.classList.contains('hidden')) {
                 contactModal.classList.add('hidden');
+                if (formStatus) formStatus.style.display = 'none';
+            }
+        });
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const emailInput = document.getElementById('contact-email');
+            const subjectInput = document.getElementById('contact-subject');
+            const messageInput = document.getElementById('contact-message');
+
+            const senderEmail = emailInput ? emailInput.value.trim() : '';
+            const subject = subjectInput ? subjectInput.value.trim() : '';
+            const message = messageInput ? messageInput.value.trim() : '';
+            const targetEmail = 'rithwikgoudb006@gmail.com';
+
+            if (!senderEmail || !subject || !message) return;
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'SENDING...';
+            }
+            if (formStatus) {
+                formStatus.style.display = 'block';
+                formStatus.textContent = 'TRANSMITTING MESSAGE...';
+            }
+
+            try {
+                const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: senderEmail,
+                        _replyto: senderEmail,
+                        _subject: subject,
+                        message: `From: ${senderEmail}\n\n${message}`
+                    })
+                });
+
+                const result = await response.json().catch(() => ({}));
+
+                if (response.ok && (result.success === 'true' || result.success === true)) {
+                    if (formStatus) {
+                        formStatus.textContent = 'MESSAGE SENT SUCCESSFULLY TO RITHWIKGOUDB006@GMAIL.COM!';
+                    }
+                    contactForm.reset();
+                } else {
+                    // Fallback to mailto with pre-filled subject and body
+                    const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${senderEmail}\n\n${message}`)}`;
+                    window.location.href = mailtoUrl;
+                    if (formStatus) {
+                        formStatus.textContent = 'OPENING EMAIL CLIENT FOR RITHWIKGOUDB006@GMAIL.COM...';
+                    }
+                    contactForm.reset();
+                }
+            } catch (err) {
+                // Fallback to mailto if offline or blocked
+                const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${senderEmail}\n\n${message}`)}`;
+                window.location.href = mailtoUrl;
+                if (formStatus) {
+                    formStatus.textContent = 'OPENING EMAIL CLIENT FOR RITHWIKGOUDB006@GMAIL.COM...';
+                }
+                contactForm.reset();
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'SUBMIT';
+                }
             }
         });
     }
@@ -145,13 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollToNextSection = () => {
         if (!scrollContainer) return;
         let currentScroll = scrollContainer.scrollTop;
-        let viewportHeight = window.innerHeight;
+        let viewportHeight = scrollContainer.clientHeight || window.innerHeight;
         // Find next section boundary
         let targetScroll = Math.ceil((currentScroll + 10) / viewportHeight) * viewportHeight;
         
-        // If at the bottom, loop back to top or just don't scroll
+        // If at the bottom, loop back to top
         if (targetScroll >= scrollContainer.scrollHeight) {
-            targetScroll = 0; // go back to top
+            targetScroll = 0;
         }
 
         scrollContainer.scrollTo({
@@ -161,38 +238,47 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const triggerCurrentSectionAction = () => {
-        // Find the currently visible section
         if (!scrollContainer) return;
         let currentScroll = scrollContainer.scrollTop;
-        let viewportHeight = window.innerHeight;
+        let viewportHeight = scrollContainer.clientHeight || window.innerHeight;
         let currentIndex = Math.round(currentScroll / viewportHeight);
         
         if (currentIndex >= 0 && currentIndex < sections.length) {
             const currentSection = sections[currentIndex];
             
-            // Try to find a visible click-to-open button inside current slide or section
-            const visibleToggle = currentSection.querySelector('.current-slide .click-to-open:not(.hidden)') || 
-                                  currentSection.querySelector('.click-to-open:not(.hidden)');
-            
-            if (visibleToggle) {
-                visibleToggle.click();
-            } else {
-                // If already open, close it
-                const visibleContent = currentSection.querySelector('.current-slide .box-content:not(.hidden)') || 
-                                       currentSection.querySelector('.box-content:not(.hidden)');
-                if (visibleContent) {
-                    visibleContent.click();
+            // Find the interactive box in the active carousel slide or directly in the section
+            const activeContainer = currentSection.querySelector('.current-slide') || currentSection;
+            const toggleBtn = activeContainer.querySelector('.click-to-open');
+            const contentBox = activeContainer.querySelector('.box-content');
+
+            if (toggleBtn && contentBox) {
+                const isContentHidden = contentBox.classList.contains('hidden');
+                if (isContentHidden) {
+                    contentBox.classList.remove('hidden');
+                    toggleBtn.classList.add('hidden');
+                } else {
+                    contentBox.classList.add('hidden');
+                    toggleBtn.classList.remove('hidden');
                 }
+            } else {
+                // For sections without an interactive box (e.g., Skills), advance to the next section
+                scrollToNextSection();
             }
         }
     };
 
     if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', scrollToNextSection);
+        scrollIndicator.addEventListener('click', (e) => {
+            e.stopPropagation();
+            scrollToNextSection();
+        });
     }
 
     if (pressIndicator) {
-        pressIndicator.addEventListener('click', triggerCurrentSectionAction);
+        pressIndicator.addEventListener('click', (e) => {
+            e.stopPropagation();
+            triggerCurrentSectionAction();
+        });
     }
 
     // Keyboard controls for press and scroll
@@ -203,10 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             e.preventDefault();
             triggerCurrentSectionAction();
-        } else if (e.key === 'ArrowDown' || e.key === ' ') {
-            // Let native scroll happen for ArrowDown and Space, or force it if it's not smooth
-            // Using default scroll behavior is usually fine, but if we want to ensure snapping:
-            // scrollToNextSection(); 
         }
     });
 

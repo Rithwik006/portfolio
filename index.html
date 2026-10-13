@@ -55,9 +55,9 @@
         <!-- 1. Home Section -->
         <section id="home" class="section-panel" style="background-image: url('assets/bg-home.png');">
             <div class="section-content home-content">
-                <p class="subtitle glow-text">A MESSAGE FROM EARTH</p>
-                <h1 class="title glow-text-purple">HELLO FELLOW GALAXY MEMBER</h1>
-                <p class="subtitle glow-text">A MESSAGE FROM EARTH</p>
+                <p class="subtitle glow-text">WELCOME TO MY PORTFOLIO</p>
+                <h1 class="title glow-text-purple">ASPIRING SOFTWARE DEVELOPER</h1>
+                <p class="subtitle glow-text">COMPUTER SCIENCE &amp; ENGINEERING</p>
                 
                 <h2 class="name-title glow-text-purple">I AM RITHWIK GOUD</h2>
 
@@ -88,16 +88,13 @@
                 <p class="section-subtitle glow-text">HERE IS A LIST OF SOME OF MY SKILLS</p>
                 
                 <div class="skills-grid">
-                    <div class="skill-box glow-box">ReactJS</div>
-                    <div class="skill-box glow-box">Node.js</div>
-                    <div class="skill-box glow-box">Express</div>
-                    <div class="skill-box glow-box">FastAPI</div>
-                    <div class="skill-box glow-box">MongoDB</div>
                     <div class="skill-box glow-box">Python</div>
                     <div class="skill-box glow-box">Java</div>
-                    <div class="skill-box glow-box">C / C++</div>
-                    <div class="skill-box glow-box">Tailwind CSS</div>
+                    <div class="skill-box glow-box">C</div>
                     <div class="skill-box glow-box">HTML/JS</div>
+                    <div class="skill-box glow-box">CSS</div>
+                    <div class="skill-box glow-box">FastAPI</div>
+                    <div class="skill-box glow-box">MongoDB</div>
                 </div>
             </div>
         </section>
@@ -280,23 +277,25 @@
             <button id="close-modal" class="close-btn glow-text">&lt; GO BACK</button>
             <h2 class="section-title glow-text-purple">CONTACT ME</h2>
             
-            <form class="space-form" action="mailto:rithwikgoud006@gmail.com" method="post" enctype="text/plain">
+            <form id="contact-form" class="space-form" action="mailto:rithwikgoudb006@gmail.com" method="GET">
                 <div class="form-group">
-                    <label>EMAIL :</label>
-                    <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
+                    <label for="contact-email">EMAIL :</label>
+                    <input type="email" id="contact-email" name="email" placeholder="YOUR EMAIL ADDRESS" required>
                 </div>
                 <div class="form-group">
-                    <label>SUBJECT :</label>
-                    <input type="text" placeholder="SOMETHING SOMETHING" required>
+                    <label for="contact-subject">SUBJECT :</label>
+                    <input type="text" id="contact-subject" name="subject" placeholder="PROJECT / OPPORTUNITY" required>
                 </div>
                 <div class="form-group">
-                    <label>CONTENT :</label>
-                    <textarea placeholder="SOMETHING SOMETHING..." rows="5" required></textarea>
+                    <label for="contact-message">CONTENT :</label>
+                    <textarea id="contact-message" name="message" placeholder="WRITE YOUR MESSAGE HERE..." rows="5" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn glow-text-purple">SUBMIT</button>
+                <button type="submit" id="contact-submit-btn" class="submit-btn glow-text-purple">SUBMIT</button>
+                <p id="form-status" class="glow-text" style="display: none; font-size: 0.9rem; text-align: center; margin-top: 10px;"></p>
             </form>
             
             <div class="modal-socials">
+                <a href="mailto:rithwikgoudb006@gmail.com" title="rithwikgoudb006@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://github.com/Rithwik006" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/rithwik-goud-4b9b443ab/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.hackerrank.com/profile/Rithwik006" target="_blank" title="HackerRank"><i class="fa-brands fa-hackerrank"></i></a>
