@@ -36,6 +36,38 @@ app.get('/api/projects', async (req, res) => {
     }
 });
 
+// API Endpoint to send contact form emails directly to rithwikgoudb006@gmail.com
+app.post('/api/contact', async (req, res) => {
+    const { email, subject, message } = req.body;
+    if (!email || !subject || !message) {
+        return res.status(400).json({ success: false, message: 'All fields are required.' });
+    }
+    try {
+        const response = await fetch('https://formsubmit.co/ajax/rithwikgoudb006@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Origin': 'https://portfolio-rithwik006.vercel.app',
+                'Referer': 'https://portfolio-rithwik006.vercel.app/'
+            },
+            body: JSON.stringify({
+                email,
+                _replyto: email,
+                _subject: subject,
+                subject,
+                message,
+                _captcha: 'false',
+                _template: 'table'
+            })
+        });
+        const data = await response.json();
+        res.status(response.status).json(data);
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Failed to send message', error: error.message });
+    }
+});
+
 // Optional: API Endpoint to seed the database with initial data
 app.post('/api/seed', async (req, res) => {
     const initialProjects = [

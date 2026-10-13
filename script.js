@@ -162,48 +162,48 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (formStatus) {
                 formStatus.style.display = 'block';
-                formStatus.textContent = 'TRANSMITTING MESSAGE...';
+                formStatus.textContent = 'SENDING MESSAGE...';
             }
 
             try {
+                const formData = new FormData();
+                formData.append('email', senderEmail);
+                formData.append('_replyto', senderEmail);
+                formData.append('_subject', subject);
+                formData.append('subject', subject);
+                formData.append('message', message);
+                formData.append('_captcha', 'false');
+                formData.append('_template', 'table');
+
                 const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({
-                        email: senderEmail,
-                        _replyto: senderEmail,
-                        _subject: subject,
-                        message: `From: ${senderEmail}\n\n${message}`
-                    })
+                    body: formData
                 });
 
                 const result = await response.json().catch(() => ({}));
 
                 if (response.ok && (result.success === 'true' || result.success === true)) {
                     if (formStatus) {
-                        formStatus.textContent = 'MESSAGE SENT SUCCESSFULLY TO RITHWIKGOUDB006@GMAIL.COM!';
+                        formStatus.textContent = 'MESSAGE SENT SUCCESSFULLY!';
+                    }
+                    contactForm.reset();
+                } else if (result.message && result.message.toLowerCase().includes('activation')) {
+                    if (formStatus) {
+                        formStatus.textContent = 'PLEASE CHECK RITHWIKGOUDB006@GMAIL.COM AND CLICK "ACTIVATE FORM" TO RECEIVE MESSAGES.';
                     }
                     contactForm.reset();
                 } else {
-                    // Fallback to mailto with pre-filled subject and body
-                    const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${senderEmail}\n\n${message}`)}`;
-                    window.location.href = mailtoUrl;
                     if (formStatus) {
-                        formStatus.textContent = 'OPENING EMAIL CLIENT FOR RITHWIKGOUDB006@GMAIL.COM...';
+                        formStatus.textContent = result.message || 'MESSAGE SUBMITTED! (NOTE: MUST BE OPENED VIA LIVE SERVER / VERCEL URL)';
                     }
-                    contactForm.reset();
                 }
             } catch (err) {
-                // Fallback to mailto if offline or blocked
-                const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${senderEmail}\n\n${message}`)}`;
-                window.location.href = mailtoUrl;
                 if (formStatus) {
-                    formStatus.textContent = 'OPENING EMAIL CLIENT FOR RITHWIKGOUDB006@GMAIL.COM...';
+                    formStatus.textContent = 'ERROR SENDING MESSAGE. MAKE SURE SITE IS OPENED VIA HTTP/HTTPS (NOT FILE://).';
                 }
-                contactForm.reset();
             } finally {
                 if (submitBtn) {
                     submitBtn.disabled = false;
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Press and Scroll Indicators ---
+    // --- Press (Go Back) and Scroll (Next Page) Indicators ---
     const scrollContainer = document.querySelector('.scroll-container');
     const scrollIndicator = document.querySelector('.scroll-indicator');
     const pressIndicator = document.querySelector('.press-indicator');
@@ -237,33 +237,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const triggerCurrentSectionAction = () => {
+    const goBackSection = () => {
+        // 1. If contact modal is open, close it first
+        if (contactModal && !contactModal.classList.contains('hidden')) {
+            contactModal.classList.add('hidden');
+            if (formStatus) formStatus.style.display = 'none';
+            return;
+        }
+
         if (!scrollContainer) return;
         let currentScroll = scrollContainer.scrollTop;
         let viewportHeight = scrollContainer.clientHeight || window.innerHeight;
         let currentIndex = Math.round(currentScroll / viewportHeight);
-        
-        if (currentIndex >= 0 && currentIndex < sections.length) {
-            const currentSection = sections[currentIndex];
-            
-            // Find the interactive box in the active carousel slide or directly in the section
-            const activeContainer = currentSection.querySelector('.current-slide') || currentSection;
-            const toggleBtn = activeContainer.querySelector('.click-to-open');
-            const contentBox = activeContainer.querySelector('.box-content');
 
-            if (toggleBtn && contentBox) {
-                const isContentHidden = contentBox.classList.contains('hidden');
-                if (isContentHidden) {
-                    contentBox.classList.remove('hidden');
-                    toggleBtn.classList.add('hidden');
-                } else {
-                    contentBox.classList.add('hidden');
-                    toggleBtn.classList.remove('hidden');
-                }
-            } else {
-                // For sections without an interactive box (e.g., Skills), advance to the next section
-                scrollToNextSection();
+        // 2. If we are past the first section, scroll back to the previous section/page
+        if (currentIndex > 0) {
+            let targetScroll = (currentIndex - 1) * viewportHeight;
+            scrollContainer.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
+            });
+            return;
+        }
+
+        // 3. If on the first section (#home), close any open interactive box or go back in browser history
+        const currentSection = sections[0];
+        if (currentSection) {
+            const openContent = currentSection.querySelector('.box-content:not(.hidden)');
+            const toggleBtn = currentSection.querySelector('.click-to-open');
+            if (openContent && toggleBtn) {
+                openContent.classList.add('hidden');
+                toggleBtn.classList.remove('hidden');
+                return;
             }
+        }
+
+        if (window.history.length > 1) {
+            window.history.back();
         }
     };
 
@@ -277,18 +287,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pressIndicator) {
         pressIndicator.addEventListener('click', (e) => {
             e.stopPropagation();
-            triggerCurrentSectionAction();
+            goBackSection();
         });
     }
 
-    // Keyboard controls for press and scroll
+    // Keyboard controls for press (go back) and scroll
     document.addEventListener('keydown', (e) => {
         // Don't trigger if user is typing in the contact form
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' || e.key === 'Backspace') {
             e.preventDefault();
-            triggerCurrentSectionAction();
+            goBackSection();
         }
     });
 
