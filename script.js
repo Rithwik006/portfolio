@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = new FormData();
                 formData.append('email', senderEmail);
                 formData.append('_replyto', senderEmail);
-                formData.append('_subject', subject);
+                formData.append('_subject', `${subject} (From: ${senderEmail})`);
                 formData.append('subject', subject);
                 formData.append('message', message);
                 formData.append('_captcha', 'false');

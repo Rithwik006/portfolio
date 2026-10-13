@@ -48,13 +48,13 @@ app.post('/api/contact', async (req, res) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Origin': 'https://portfolio-rithwik006.vercel.app',
-                'Referer': 'https://portfolio-rithwik006.vercel.app/'
+                'Origin': 'https://rithwikbeemagani.vercel.app',
+                'Referer': 'https://rithwikbeemagani.vercel.app/'
             },
             body: JSON.stringify({
                 email,
                 _replyto: email,
-                _subject: subject,
+                _subject: `${subject} (From: ${email})`,
                 subject,
                 message,
                 _captcha: 'false',
